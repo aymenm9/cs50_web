@@ -1,0 +1,97 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #202124; }
+
+header {
+  padding: 2rem 4rem;
+  text-align: center;
+  color: white; }
+  header .btn {
+    background-color: none; }
+  header nav {
+    display: flex;
+    justify-content: end; }
+  @media (min-width: 768px) {
+    header #nav-collapse {
+      display: none; } }
+  @media (max-width: 768px) {
+    header nav {
+      flex-direction: column; }
+    header #nav-collapse {
+      display: block; }
+    header .nav-items {
+      display: none;
+      flex-direction: column;
+      text-align: left; }
+    header .nav-items-open {
+      display: flex;
+      justify-content: start;
+      font-size: 1.5rem; } }
+  header h1 {
+    margin-top: 3rem; }
+
+.nav-item {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #D8D8D8;
+  font-size: 1rem;
+  margin-bottom: 0.5rem; }
+  .nav-item:hover {
+    background-color: #303134; }
+
+.active {
+  color: white;
+  font-weight: bold; }
+
+#search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 2rem; }
+  #search-container img {
+    width: 15rem; }
+  #search-container #search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 40rem; }
+    #search-container #search-form #input-group {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      background-color: white;
+      border-radius: 2rem; }
+      #search-container #search-form #input-group span {
+        padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+        border-right: #303134 1px solid; }
+    #search-container #search-form input {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: none;
+      border: none;
+      font-size: 1.2rem; }
+    #search-container #search-form #search-btns {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: space-around;
+      width: 100%; }
+      #search-container #search-form #search-btns input {
+        background-color: #303134;
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        width: 25%;
+        font-size: 1rem; }
+    @media (max-width: 768px) {
+      #search-container #search-form #search-btns {
+        flex-direction: column;
+        align-items: center; }
+        #search-container #search-form #search-btns input {
+          margin-bottom: 1rem;
+          width: 50%; } }
+
+/*# sourceMappingURL=shared.css.map */

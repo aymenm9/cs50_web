@@ -1,0 +1,132 @@
+$off-white: #D8D8D8;
+$main-bg: #202124;
+$secondary-bg: #303134;
+
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #202124;
+}
+
+header{
+    padding: 2rem 4rem;
+    text-align: center;
+    color: white;
+    .btn{
+        background-color: none;
+    }
+    nav{
+        display: flex;
+        justify-content: end;
+        
+    }
+    @media (min-width: 768px){
+
+        #nav-collapse{
+            display: none;
+        }
+    }
+    @media(max-width: 768px){
+        nav{
+            flex-direction: column;
+        }
+        #nav-collapse{
+            display: block;
+        }
+        .nav-items{
+            display: none;
+            flex-direction: column;
+            text-align: left;
+        }
+        .nav-items-open{
+            display: flex;
+            justify-content: start;
+            font-size: 1.5rem;
+        }
+    }
+    h1{
+        margin-top: 3rem;
+    }
+
+}
+.nav-item{
+
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: $off-white;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+
+    &:hover{
+        background-color: $secondary-bg;
+    }
+}
+.active{
+    color: white;
+    font-weight: bold;
+}
+
+#search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem;
+    img{
+        width: 15rem;
+    }
+    #search-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 40rem;
+        #input-group{
+            display: flex;
+            width: 100%;
+            align-items: center;
+            background-color: white;
+            border-radius: 2rem;
+            span{
+                padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+                border-right: $secondary-bg 1px solid;
+            }
+        }
+        input{
+            width: 100%;
+            padding: 1rem 2rem;
+            
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+        }
+
+        #search-btns{
+            margin-top: 2rem;
+            display: flex;
+            justify-content:space-around;
+            width: 100%;
+
+            input{
+                background-color: $secondary-bg;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem;
+                border: none;
+                width: 25%;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 768px){
+            #search-btns{
+                flex-direction: column;
+                align-items: center;
+                input{
+                    margin-bottom: 1rem;
+                    width: 50%;
+                }
+            }
+        }
+    }
+}
