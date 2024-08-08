@@ -36,3 +36,7 @@ textarea {
 .sidebar h2 {
     margin-top: 5px;
 }
+
+#entrie_textarea{
+    height: 15rem;
+}

@@ -1,0 +1,31 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Page</h1>
+
+    <form action="{% url "add_entrie" %}" method="POST" class="entrie_form ms-2">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label class=" form-lable" for="title">Entrei title</label>
+            <input type = "text" name="title" placeholder="Enter the title of the entrie" value="{% if title  %}{{title.txt}}{% endif %}"  class=" form-control" id="title" required>    
+            {% if title.error %}
+            <label class="form-lable text-danger" for="title">Title already exist</label>
+            {% endif %}
+        </div>
+        <div class="form-group my-3">
+            <lable class=" form-lable" for="entrie_textarea">Entrei Content</label>
+            <textarea name="markup"class="form-control" id="entrie_textarea" placeholder="Enter the Content of the entrie" required>{% if markup  %}{{markup.txt}}{% endif %}</textarea>
+            {% if markup.error %}
+            <lable class="form-lable text-danger" for="title">Error in the formating</label>
+            {% endif %}
+            
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+    
+
+{% endblock %}

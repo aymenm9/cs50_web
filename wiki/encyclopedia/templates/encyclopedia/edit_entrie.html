@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit {{title}}
+{% endblock %}
+
+{% block body %}
+    <h1>Edit {{title}}</h1>
+
+    <form action="{{title}}" method="POST" class="entrie_form ms-2">
+        {% csrf_token %}
+        <div class="form-group my-3">
+            <lable class=" form-lable" for="entrie_textarea">Entrei Content</label>
+            <textarea name="markup"class="form-control" id="entrie_textarea" placeholder="Enter the Content of the entrie" required>{% if markup  %}{{markup}}{% endif %}</textarea>
+            {% if error %}
+            <lable class="form-lable text-danger" for="title">Error in the formating</label>
+            {% endif %}
+            
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+    
+
+{% endblock %}
