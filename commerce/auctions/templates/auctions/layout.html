@@ -5,25 +5,43 @@
     <head>
         <title>{% block title %}Auctions{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
     </head>
     <body>
-        <h1>Auctions</h1>
-        <div>
-            {% if user.is_authenticated %}
-                Signed in as <strong>{{ user.username }}</strong>.
-            {% else %}
-                Not signed in.
-            {% endif %}
-        </div>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
-            </li>
+    <header>
+        <nav>
+            <a href="/" id="nav-logo">
+                <h1>Auctions</h1>
+                <p id="nav-user">
+                {% if user.is_authenticated %}
+                    Signed in as <strong>{{ user.username }}</strong>.
+                {% else %}
+                    Not signed in.
+                {% endif %}
+                </p>
+            </a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+                </li>
             {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-link" href="#categories">Categories</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'watchlist' %}">Watchlist</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                    
+                        <ul class="dropdown-menu" id="dropdown">
+                            <li><a class="dropdown-item" href="{% url "add_listing" %}"><i class="bi bi-plus"></i> Add Listing</a></li>
+                            <li><a class="dropdown-item" href="/{{ user.username }}"><i class="bi bi-person"></i> Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url "logout" %}"><i class="bi bi-box-arrow-left"></i> Logout</a></li>
+                        </ul>
+                </li>
+
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'login' %}">Log In</a>
@@ -33,8 +51,16 @@
                 </li>
             {% endif %}
         </ul>
+        </nav>
         <hr>
+
+
+        </header>
+
+        <main>
         {% block body %}
         {% endblock %}
+        </main>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>
