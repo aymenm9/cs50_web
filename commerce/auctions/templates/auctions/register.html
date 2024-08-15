@@ -2,6 +2,8 @@
 
 {% block body %}
 
+
+    <div class="auth-form">
     <h2>Register</h2>
 
     {% if message %}
@@ -11,20 +13,25 @@
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
-            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+            <label for="username" class="input-label"><i class="bi bi-person"></i></label>
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username" id="username">
         </div>
         <div class="form-group">
-            <input class="form-control" type="email" name="email" placeholder="Email Address">
+            <label for="email" class="input-label"><i class="bi bi-at"></i></label>
+            <input class="form-control" type="email" name="email" placeholder="Email Address" id="email">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
+            <label for="password" class="input-label"><i class="bi bi-key"></i></label>
+            <input class="form-control" type="password" name="password" placeholder="Password" id="password">
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password">
+            <label for="confirmation" class="input-label"><i class="bi bi-check2-circle"></i></label>
+            <input class="form-control" type="password" name="confirmation" placeholder="Confirm Password" id="confirmation">
         </div>
         <input class="btn btn-primary" type="submit" value="Register">
     </form>
 
-    Already have an account? <a href="{% url 'login' %}">Log In here.</a>
+    <p>Already have an account? <a href="{% url 'login' %}">Log In here.</a></p>
+    </div>
 
 {% endblock %}
