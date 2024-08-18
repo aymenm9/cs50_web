@@ -1,0 +1,9 @@
+<div class="categories">
+    {% for categorie in categories %}
+    
+    <a class="categorie" href="categorie/{{categorie.name}}">
+        <img src="{{ categorie.img.url }}" alt="" class="categorie-img">
+        <h3>{{ categorie.name }}</h3>
+    </a>
+    {% endfor %}
+</div>

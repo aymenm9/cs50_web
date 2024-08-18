@@ -4,15 +4,15 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
-from .models import User
+from .models import *
 
 
 def index(request):
-    return render(request, "auctions/index.html")
+    
+    return render(request, "auctions/index.html",{
+        "listings": Listings.objects.filter(active = True)
+    })
 
-
-def profile(request, username):
-    pass
 
 def add_listing(request):
     pass
@@ -21,7 +21,26 @@ def watchlist(request):
     pass
 
 
+def categorie(request,name):
+    pass
+    
 
+
+def profile(request, username):
+    pass
+
+
+
+# get for htmx
+
+def get_categories(request):
+
+    return render(request , "auctions/categories-nav.html" , {
+        "categories" : Categories.objects.all() 
+    })
+
+
+# auth
 
 def login_view(request):
     if request.method == "POST":

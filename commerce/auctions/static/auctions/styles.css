@@ -18,6 +18,8 @@ header {
     header nav a, header nav button {
       color: #E7A016;
       margin-left: 1rem; }
+    header nav a:hover {
+      color: #ffffff; }
     header nav #nav-logo {
       display: flex;
       flex-direction: column;
@@ -29,6 +31,9 @@ header {
         margin-bottom: -1.1rem;
         padding: 0 0.25rem;
         background-color: #0D1117; }
+    header nav #nav-logo:hover {
+      text-decoration: none;
+      color: #E7A016; }
   header hr {
     margin: 0 7.5rem;
     border-color: #E6EDF3; }
@@ -60,5 +65,33 @@ main {
     padding: 0 1rem;
     color: #ffffff;
     background-color: #30A14E; }
+
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  overflow-x: scroll;
+  width: 100%;
+  scroll-behavior: smooth;
+  margin-top: 1rem; }
+  .categories .categorie {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ffffff;
+    margin: 0.5rem 5rem; }
+    .categories .categorie .categorie-img {
+      height: 6rem;
+      width: 6rem;
+      padding: 1rem;
+      background-color: #E7A016;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem; }
+
+.categories::-webkit-scrollbar {
+  display: block;
+  height: 0.5rem;
+  color: #ffffff; }
 
 /*# sourceMappingURL=styles.css.map */

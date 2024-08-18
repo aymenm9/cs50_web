@@ -2,7 +2,24 @@
 
 {% block body %}
 
+    <div id="categories" hx-get="/categories" hx-swap="innerHTML" hx-trigger="load">
+    </div>
+    <hr>
     <h2>Active Listings</h2>
 
-    TODO
+    {% for listing in listings %}
+        <div class="listing">
+            <div class="listing-imgs">
+                {% for img in listing.img_set.all() %}
+                    <div class="listing-img">
+                        <img src="{{ img.url }}" alt="listing img">
+                    </div>
+                {% empty %}
+                    <img src="{% static "auctions/imgs/default-listing.png" %}" alt="default listing img">
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <h3 class=" text-center mt-5 text-white">No Active Listings for now</h3>
+    {% endfor %}
 {% endblock %}

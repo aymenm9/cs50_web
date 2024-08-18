@@ -8,6 +8,10 @@ body{
     background-color: $bg-color;
     
 }
+hr{
+
+    border-color: $secondary-white;
+} 
 header{
     margin: 0.5rem 0 1.5rem 0;
     
@@ -30,7 +34,9 @@ header{
             color: $main-yellow;
             margin-left: 1rem;
         }
-        
+        a:hover{
+            color: $main-white;
+        }
         #nav-logo{
             display: flex;
             flex-direction: column;
@@ -44,6 +50,10 @@ header{
                 padding:0 0.25rem;
                 background-color: $bg-color;
             }
+        }
+        #nav-logo:hover{
+            text-decoration: none;
+            color: $main-yellow;
         }
 
     }
@@ -84,4 +94,35 @@ main{
         color: $main-white;
         background-color: $main-green;
     }
+}
+.categories{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow-x: scroll;
+    width: 100%;
+    scroll-behavior: smooth;
+    margin-top: 1rem;
+    .categorie{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $main-white;
+        margin: 0.5rem 5rem;
+        .categorie-img{
+            height: 6rem;
+            width: 6rem;
+            padding: 1rem;
+            background-color: $main-yellow;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+        
+    }
+}
+.categories::-webkit-scrollbar{
+    display: block;
+    height: 0.5rem;
+    color: $main-white;
 }
