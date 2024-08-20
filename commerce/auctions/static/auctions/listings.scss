@@ -1,0 +1,37 @@
+$bg-color: #0D1117;
+$main-white: #ffffff;
+$main-blue: #1F6FEB;
+$main-green: #30A14E;
+$main-yellow: #E7A016;
+$secondary-white: #E6EDF3;
+
+.listings-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    .listing{
+        color: $secondary-white ;
+        h3{
+            color: $main-white;
+        }
+        .listing-img{
+            img{
+                width: 100%;
+                object-fit: fill;
+            }
+            margin-bottom: 1rem;
+        }
+        .listing-footer{
+            display: flex;
+            justify-content: space-between;
+            .prix{
+                color: $main-green;
+            }
+            .add-watchlist-btn{
+                all: unset;
+                margin-left: 2rem;
+
+            }
+        }
+    }
+}

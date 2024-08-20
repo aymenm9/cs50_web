@@ -1,25 +1,144 @@
 {% extends "auctions/layout.html" %}
-
+{% block head  %}
+{% load static %}
+<link rel="stylesheet" href="{% static "auctions/listings.css" %}">
+{% endblock  %}
 {% block body %}
 
     <div id="categories" hx-get="/categories" hx-swap="innerHTML" hx-trigger="load">
     </div>
     <hr>
     <h2>Active Listings</h2>
-
-    {% for listing in listings %}
+    {% load static %}
+    <div class="listings-grid">
         <div class="listing">
-            <div class="listing-imgs">
-                {% for img in listing.img_set.all() %}
-                    <div class="listing-img">
-                        <img src="{{ img.url }}" alt="listing img">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 1 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
                     </div>
-                {% empty %}
-                    <img src="{% static "auctions/imgs/default-listing.png" %}" alt="default listing img">
-                {% endfor %}
+                    <p>xx/xx/2024</p>
+                </div>
             </div>
         </div>
-    {% empty %}
-        <h3 class=" text-center mt-5 text-white">No Active Listings for now</h3>
-    {% endfor %}
+        <div class="listing">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 2 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
+                    </div>
+                    <p>xx/xx/2024</p>
+                </div>
+            </div>
+        </div>
+        <div class="listing">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 3 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
+                    </div>
+                    <p>xx/xx/2024</p>
+                </div>
+            </div>
+        </div>
+        <div class="listing">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 1 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
+                    </div>
+                    <p>xx/xx/2024</p>
+                </div>
+            </div>
+        </div>
+        <div class="listing">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 2 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
+                    </div>
+                    <p>xx/xx/2024</p>
+                </div>
+            </div>
+        </div>
+        <div class="listing">
+            <div class="listing-img">
+                <img src="{% static "auctions/imgs/default-listing.png" %}" alt="listing img">
+            </div>
+            <div class="listing-details">
+                <h3> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, quae!</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio dolor doloribus fugiat nesciunt velit ratione aut eos ad aliquam consectetur?</p>
+                <div class="listing-footer">
+                    <div>
+                        <span class="prix">Prix: 3 $</span>
+                        <button class="add-watchlist-btn"><i class="bi bi-heart"></i></button>   
+                    </div>
+                    <p>xx/xx/2024</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--
+        to test
+        <div class="listings-grid">
+        {% for listing in listings %}
+            <div class="listing">
+                {% for img in listing.imgs_set.all %}
+                    <div class="listing-img d-none">
+                        <button class="listing-img-btn left"><i class="bi bi-arrow-left-circle"></i></button>
+                        <img src="{{ img.url }}" alt="listing img">
+                        <button class="listing-img-btn right"><i class="bi bi-arrow-right-circle"></i></button>
+                    </div>
+                {% empty %}
+                    <div class="listing-img">
+                    <img src="{% static "auctions/imgs/default-listing.png" %}" alt="default listing img">
+                    </div>
+                {% endfor %}
+                <div class="listing-details">
+                    <h3>{{ listing.title }}</h3>
+                    <p>{{ listing.description }}</p>
+                    <div class="listing-footer">
+                        <span class="prix">Prix: {{ listing.sbid }}$</span>
+
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <h3 class=" text-center mt-5 text-white">No Active Listings for now</h3>
+        {% endfor %}
+        </div>
+        -->
+    
+
+    
 {% endblock %}

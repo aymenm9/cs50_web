@@ -1,6 +1,9 @@
 body {
   background-color: #0D1117; }
 
+hr {
+  border-color: #E6EDF3; }
+
 header {
   margin: 0.5rem 0 1.5rem 0; }
   header nav {
@@ -91,7 +94,13 @@ main {
 
 .categories::-webkit-scrollbar {
   display: block;
-  height: 0.5rem;
+  height: 0.25rem;
+  width: 2rem;
   color: #ffffff; }
+
+.categories::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  color: #ffffff;
+  opacity: 0.25; }
 
 /*# sourceMappingURL=styles.css.map */

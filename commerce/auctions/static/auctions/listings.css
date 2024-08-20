@@ -1,0 +1,23 @@
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; }
+  .listings-grid .listing {
+    color: #E6EDF3; }
+    .listings-grid .listing h3 {
+      color: #ffffff; }
+    .listings-grid .listing .listing-img {
+      margin-bottom: 1rem; }
+      .listings-grid .listing .listing-img img {
+        width: 100%;
+        object-fit: fill; }
+    .listings-grid .listing .listing-footer {
+      display: flex;
+      justify-content: space-between; }
+      .listings-grid .listing .listing-footer .prix {
+        color: #30A14E; }
+      .listings-grid .listing .listing-footer .add-watchlist-btn {
+        all: unset;
+        margin-left: 2rem; }
+
+/*# sourceMappingURL=listings.css.map */
